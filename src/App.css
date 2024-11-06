@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.resizable-item {
+  padding: 5px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.resizable-handle {
+  width: 30px;
+  height: 30px;
+  background: red;
+}
+

@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import styled from 'styled-components';
+
+import Sidebar from './components/SideBar';
+import TemplateCanvas from './components/TemplateCanvas';
+
+const AppContainer = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const SidebarContainer = styled.div`
+  width: 250px;
+  background: #f0f0f0;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+`;
+
+const TemplateContainer = styled.div`
+  width: 1100px;
+  background: #fff;
+  padding: 20px;
+  background-color: #f0f0f0;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <AppContainer>
+        <SidebarContainer>
+          <Sidebar />
+        </SidebarContainer>
+        <TemplateContainer>
+          <TemplateCanvas />
+        </TemplateContainer>
+      </AppContainer>
+    </DndProvider>
   );
 }
 
